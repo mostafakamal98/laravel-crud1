@@ -6,8 +6,8 @@ pipeline {
         sh 'docker-compose build app'
         sh 'docker-compose up -d'
         sh 'docker-compose ps'
-        sh 'cd /home/mostafa/laravel-app/laravel-crud1 && docker container exec otp-app composer install'
-        sh 'cd /home/mostafa/laravel-app/laravel-crud1 && docker container exec otp-app php artisan key:generate'
+        sh 'cd /home/mostafa/laravel-app/laravel-crud1 && docker container exec crud-app composer install'
+        sh 'cd /home/mostafa/laravel-app/laravel-crud1 && docker container exec crud-app php artisan key:generate'
       }
     }
    }
