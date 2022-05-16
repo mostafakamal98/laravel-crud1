@@ -4,10 +4,10 @@ pipeline {
     stage('Start container') {
       steps {
         sh 'docker-compose build app'
-        sh '/usr/bin/docker-compose up -d'
-        sh '/usr/bin/docker-compose ps'
-        sh 'cd /home/mostafa/laravel-app/otp-rochi/otp && docker container exec otp-app composer install'
-        sh 'cd /home/mostafa/laravel-app/otp-rochi/otp && docker container exec otp-app php artisan key:generate'
+        sh 'docker-compose up -d'
+        sh 'docker-compose ps'
+        sh 'cd /home/mostafa/laravel-app/laravel-crud1 && docker container exec otp-app composer install'
+        sh 'cd /home/mostafa/laravel-app/laravel-crud1 && docker container exec otp-app php artisan key:generate'
       }
     }
    }
