@@ -1,0 +1,14 @@
+pipeline {
+  agent any
+  stages {
+    stage('Start container') {
+      steps {
+        sh 'docker-compose build app'
+        sh '/usr/bin/docker-compose up -d'
+        sh '/usr/bin/docker-compose ps'
+        sh 'cd /home/mostafa/laravel-app/otp-rochi/otp && docker container exec otp-app composer install'
+        sh 'cd /home/mostafa/laravel-app/otp-rochi/otp && docker container exec otp-app php artisan key:generate'
+      }
+    }
+   }
+}
